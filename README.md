@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🎬 AI Media Orchestrator (Web)</h1>
-  <p>A secure, server-side orchestrated Next.js application for unified AI media generation via OpenRouter.</p>
+  <p>Eine sichere, serverseitig orchestrierte Next.js-Anwendung für die einheitliche KI-Mediengenerierung via OpenRouter.</p>
   
   <p>
     <img src="https://img.shields.io/badge/React-19-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React 19" />
@@ -12,22 +12,22 @@
 
 ---
 
-## 📌 Executive Summary
+## 📌 Projektübersicht
 
-The AI model landscape is highly fragmented, with different providers for image and video generation. This project provides a **unified, cohesive web interface** to generate media across different models (like Flux, Luma, Runway) by leveraging the OpenRouter API. 
+Die KI-Modell-Landschaft ist stark fragmentiert, mit unterschiedlichen Anbietern für Bild- und Videogenerierung. Dieses Projekt bietet eine **einheitliche, zusammenhängende Weboberfläche**, um Medien über verschiedene Modelle (wie Flux, Luma, Runway) hinweg durch die Nutzung der OpenRouter API zu generieren. 
 
-Built with modern **React 19** and the **Next.js 16 App Router**, it serves as a showcase for **Secure API Proxying** and modern frontend architecture.
+Gebaut mit modernem **React 19** und dem **Next.js 16 App Router**, dient es als Showcase für **Sicheres API-Proxying** und moderne Frontend-Architektur.
 
-## 🏗️ Architecture & Technical Highlights
+## 🏗️ Architektur & Technische Highlights
 
-As a professional software engineer, I focus not just on UI, but on how the application is structured under the hood:
+Als Softwareentwickler konzentriere ich mich nicht nur auf die Benutzeroberfläche, sondern vor allem darauf, wie die Anwendung unter der Haube strukturiert ist:
 
-- **🔐 Server-Side API Proxying:** The OpenRouter API key is injected via secure `.env` variables and is solely used within Next.js backend routes (`app/api/`). The client frontend *never* exposes the API key, preventing token leaks and enabling future scalability (like adding Redis rate-limiting).
-- **⚡ Modern App Router:** Utilizes the Next.js App Router for an optimal Server/Client Component split, reducing JavaScript payload size and improving TTI (Time to Interactive).
-- **🛡️ Type Safety:** End-to-end TypeScript interfaces ensure strict payload validation before any data is sent to the LLM providers, preventing runtime errors.
-- **🎨 Responsive UI:** Styled with Tailwind CSS v4, offering a clean, mobile-first, and highly maintainable interface.
+- **🔐 Serverseitiges API-Proxying:** Der OpenRouter API-Key wird über sichere `.env`-Variablen eingebunden und ausschließlich in den Next.js Backend-Routen (`app/api/`) verwendet. Das Client-Frontend exponiert den API-Key *niemals*. Das verhindert Token-Leaks und ermöglicht zukünftige Skalierbarkeit (wie z.B. Redis Rate-Limiting).
+- **⚡ Moderner App Router:** Nutzt den Next.js App Router für eine optimale Aufteilung von Server- und Client-Komponenten, was die JavaScript-Payload-Größe reduziert und die Ladezeiten (TTI) verbessert.
+- **🛡️ Typensicherheit:** Durchgehende TypeScript-Interfaces stellen eine strikte Validierung der Daten sicher, bevor diese an die LLM-Provider gesendet werden, und verhindern so Laufzeitfehler.
+- **🎨 Responsives UI:** Gestylt mit Tailwind CSS v4, bietet die App eine saubere, Mobile-First und leicht wartbare Oberfläche.
 
-## 🚀 Lokaler Start (Getting Started)
+## 🚀 Lokaler Start
 
 ### 1. Abhängigkeiten installieren
 
@@ -55,12 +55,12 @@ Die App ist anschließend unter [http://localhost:3000](http://localhost:3000) e
 
 ```text
 ├── app/
-│   ├── api/generate/    # Backend Proxy (Secure execution)
+│   ├── api/generate/    # Backend Proxy (Sichere Ausführung)
 │   ├── layout.tsx       # Root Layout (Server Component)
-│   └── page.tsx         # Hauptseite (Interactive Client UI)
+│   └── page.tsx         # Hauptseite (Interaktives Client UI)
 ├── lib/
-│   └── models.ts        # Type-safe model definitions
-└── .env.local           # Local secrets (Ignored in Git)
+│   └── models.ts        # Typsichere Modell-Definitionen
+└── .env.local           # Lokale Secrets (Ignoriert in Git)
 ```
 
 ## 📄 Lizenz
