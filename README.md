@@ -1,19 +1,33 @@
-# 🎬 Next.js OpenRouter Media Generator
-
-Ein modernes Web-App-Projekt auf Basis von **Next.js**, das die **OpenRouter API** nutzt, um KI-gestützte Bild- und Videogenerierung direkt im Browser zu ermöglichen.
+<div align="center">
+  <h1>🎬 AI Media Orchestrator (Web)</h1>
+  <p>A secure, server-side orchestrated Next.js application for unified AI media generation via OpenRouter.</p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/React-19-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React 19" />
+    <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/TypeScript-5-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/TailwindCSS-4-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </p>
+</div>
 
 ---
 
-## ✨ Features
+## 📌 Executive Summary
 
-- 🖼️ Bild- und Videogenerierung via OpenRouter API
-- ⚡ Gebaut mit Next.js (App Router) & TypeScript
-- 🎨 Styling mit Tailwind CSS
-- 🔒 API-Key wird serverseitig verwaltet – niemals im Frontend exponiert
+The AI model landscape is highly fragmented, with different providers for image and video generation. This project provides a **unified, cohesive web interface** to generate media across different models (like Flux, Luma, Runway) by leveraging the OpenRouter API. 
 
----
+Built with modern **React 19** and the **Next.js 16 App Router**, it serves as a showcase for **Secure API Proxying** and modern frontend architecture.
 
-## 🚀 Lokaler Start
+## 🏗️ Architecture & Technical Highlights
+
+As a professional software engineer, I focus not just on UI, but on how the application is structured under the hood:
+
+- **🔐 Server-Side API Proxying:** The OpenRouter API key is injected via secure `.env` variables and is solely used within Next.js backend routes (`app/api/`). The client frontend *never* exposes the API key, preventing token leaks and enabling future scalability (like adding Redis rate-limiting).
+- **⚡ Modern App Router:** Utilizes the Next.js App Router for an optimal Server/Client Component split, reducing JavaScript payload size and improving TTI (Time to Interactive).
+- **🛡️ Type Safety:** End-to-end TypeScript interfaces ensure strict payload validation before any data is sent to the LLM providers, preventing runtime errors.
+- **🎨 Responsive UI:** Styled with Tailwind CSS v4, offering a clean, mobile-first, and highly maintainable interface.
+
+## 🚀 Lokaler Start (Getting Started)
 
 ### 1. Abhängigkeiten installieren
 
@@ -21,15 +35,13 @@ Ein modernes Web-App-Projekt auf Basis von **Next.js**, das die **OpenRouter API
 npm install
 ```
 
-### 2. Umgebungsvariablen einrichten
+### 2. API Keys konfigurieren
 
-Erstelle eine Datei namens `.env.local` im Hauptverzeichnis und füge deinen OpenRouter API-Key ein:
+Erstelle eine Datei namens `.env.local` im Root-Verzeichnis. Diese Datei wird absichtlich durch die `.gitignore` ignoriert.
 
 ```env
-OPENROUTER_API_KEY=sk-or-xxxxxxxxxxxxxxxxxxxxxxxx
+OPENROUTER_API_KEY=dein_api_key_hier
 ```
-
-> ⚠️ **Wichtig:** Die Datei `.env.local` ist in `.gitignore` eingetragen und wird **niemals** in das Repository hochgeladen.
 
 ### 3. Entwicklungsserver starten
 
@@ -39,36 +51,17 @@ npm run dev
 
 Die App ist anschließend unter [http://localhost:3000](http://localhost:3000) erreichbar.
 
----
+## 📁 Projektstruktur (Auszug)
 
-## 🛠️ Technologie-Stack
-
-| Technologie | Version |
-|---|---|
-| [Next.js](https://nextjs.org) | 16.x |
-| [React](https://react.dev) | 19.x |
-| [TypeScript](https://www.typescriptlang.org) | 5.x |
-| [Tailwind CSS](https://tailwindcss.com) | 4.x |
-| [OpenRouter API](https://openrouter.ai) | – |
-
----
-
-## 📁 Projektstruktur
-
-```
+```text
 ├── app/
-│   ├── api/generate/    # Server-seitige API-Route (OpenRouter)
-│   ├── layout.tsx       # Root Layout
-│   └── page.tsx         # Hauptseite
+│   ├── api/generate/    # Backend Proxy (Secure execution)
+│   ├── layout.tsx       # Root Layout (Server Component)
+│   └── page.tsx         # Hauptseite (Interactive Client UI)
 ├── lib/
-│   └── models.ts        # Verfügbare KI-Modelle
-├── public/              # Statische Assets
-├── .env.local           # 🔒 Lokale Umgebungsvariablen (nicht im Repo!)
-└── README.md
+│   └── models.ts        # Type-safe model definitions
+└── .env.local           # Local secrets (Ignored in Git)
 ```
-
----
 
 ## 📄 Lizenz
-
-Dieses Projekt steht unter der [MIT-Lizenz](./LICENSE) – © 2026.
+Dieses Projekt steht unter der [MIT-Lizenz](./LICENSE).
